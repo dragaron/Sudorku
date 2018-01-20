@@ -6,7 +6,7 @@
 ---------------------------------------------------------------------------------------------------
 --INITIALIZATION START-----------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
---Load default palette (colors are used when creating "config.ini" file
+--Load default palette
 color.loadpalette()
 
 	--Setup directory
@@ -18,24 +18,23 @@ color.loadpalette()
 
 	--Read from, or create if nonexistent, "config.ini" file
 	if files.exists(dir .. "config.ini") then
+	screen.print(10, 10, "Loading...")
+	screen.flip()
 	puzzle = tonumber(ini.read(dir .. "config.ini", "puzzle", 1))
 	theme_slot = tonumber(ini.read(dir .. "config.ini", "theme_slot", 0))	
 	themes = {}
 		for i = 1, 10 do
 		themes[i] = ini.read(dir .. "config.ini", "themes[" .. i .. "]", "255255255050000050000255090090090255255255255255255255255030000000000050130130130255255255255255255255255255255255255255255255180255255255255030")
-		end		
+		end
 	puzzle_best = {}
 		for i = 1, 201 do
 		puzzle_best[i] = tonumber(ini.read(dir .. "config.ini", "puzzle_best[" .. i .. "]", 3599))
 		end
 	else
-	screen.print(160, 230, "Please wait while the 'config.ini' file is created (only happens once)")
-	draw.rect(160, 260, 203, 20, color.white)
-	screen:flip()	
 	ini.write(dir .. "config.ini", "puzzle", 1)
 	puzzle = tonumber(ini.read(dir .. "config.ini", "puzzle", 1))
 	ini.write(dir .. "config.ini", "theme_slot", 0)
-	theme_slot = tonumber(ini.read(dir .. "config.ini", "theme_slot", 0))	
+	theme_slot = tonumber(ini.read(dir .. "config.ini", "theme_slot", 0))
 	themes = {}
 		for i = 1, 10 do
 		ini.write(dir .. "config.ini", "themes[" .. i .. "]", "255255255050000050000255090090090255255255255255255255255030000000000050130130130255255255255255255255255255255255255255255255180255255255255030")
@@ -43,10 +42,10 @@ color.loadpalette()
 		end
 	puzzle_best = {}
 		for i = 1, 201 do
-		screen.print(160, 230, "Please wait while the 'config.ini' file is created (only happens once)")
+		screen.print(160, 230, "Please wait while the 'config.ini' file is created (only happens once)...")
 		draw.rect(160, 260, 203, 20, color.white)
 		draw.fillrect(161, 261, i-1, 18, color.gray)
-		screen:flip()
+		screen.flip()
 		puzzle_best[i] = 3599
 		ini.write(dir .. "config.ini", "puzzle_best[" .. i .. "]", puzzle_best[i])
 		end
@@ -853,7 +852,7 @@ load_theme()
 	starting_y = starting_y - (spacing*5.8)
 	--/Input Grid--------------------------------------------------------------------
 
-	screen:flip()
+	screen.flip()
 
 	--Process Buttons----------------------------------------------------------------
 		--Square button
@@ -955,10 +954,10 @@ load_theme()
 		first = 1
 		last = 144		
 			for i = 1, 10 do
-				screen.print(160, 230, "Saving changes...")
+				screen.print(160, 230, "Saving...")
 				draw.rect(160, 260, 12, 20, color.white)
 				draw.fillrect(161, 261, i-1, 18, color.gray)
-				screen:flip()
+				screen.flip()
 				if string.sub(table.concat(themes), first, last) ~= string.sub(temp, first, last) then
 				ini.write(dir .. "config.ini", "themes[" .. i .. "]", string.sub(temp, first, last))
 				themes[i] = ini.read(dir .. "config.ini", "themes[" .. i .. "]", "255255255050000050000255090090090255255255255255255255255030000000000050130130130255255255255255255255255255255255255255255255180255255255255030")
@@ -967,7 +966,7 @@ load_theme()
 			last += 144
 			end
 		ini.write(dir .. "config.ini", "theme_slot", theme_slot)
-		end				
+		end
 		--Start button
 		if buttons.start then
 		time_current[7] = os.clock()
@@ -979,17 +978,17 @@ load_theme()
 			draw.line(505, 315, 505, 538, theme_color[1+theme_slot])
 			screen.print(LSANSD, 380, 260, "PAUSE", 3, theme_color[10+theme_slot])
 			screen.print(CONSOLAB, 30, 300, "GAME CONTROLS", 0.8, theme_color[10+theme_slot])
-			screen.print(CONSOLA, 30, 320, "TOUCH: Touch left/right grid to make selections", 0.8, theme_color[10+theme_slot])			
+			screen.print(CONSOLA, 30, 320, "TOUCH: Touch left/right grid to make selections", 0.8, theme_color[10+theme_slot])
 			screen.print(CONSOLA, 30, 340, "SQUARE (held)", 0.8, theme_color[10+theme_slot])
 			screen.print(CONSOLA, 30, 360, "  + D-PAD RIGHT/LEFT: Change puzzle +/- 1", 0.8, theme_color[10+theme_slot])
 			screen.print(CONSOLA, 30, 380, "  + D-PAD UP/DOWN: Change puzzle +/- 10", 0.8, theme_color[10+theme_slot])
-			screen.print(CONSOLA, 30, 400, "TRIANGLE (held)", 0.8, theme_color[10+theme_slot])			
+			screen.print(CONSOLA, 30, 400, "TRIANGLE (held)", 0.8, theme_color[10+theme_slot])
 			screen.print(CONSOLA, 30, 420, "  + L or R: Change theme", 0.8, theme_color[10+theme_slot])
 			screen.print(CONSOLA, 30, 440, "  + D-PAD: Select color (RGB) or alpha (A) to edit", 0.8, theme_color[10+theme_slot])
 			screen.print(CONSOLA, 30, 460, "  + Left Analog UP/DOWN: +/- 1 (0-255)", 0.8, theme_color[10+theme_slot])
 			screen.print(CONSOLA, 30, 480, "CIRCLE (held): Indicate # missing/incorrect", 0.8, theme_color[10+theme_slot])
 			screen.print(CONSOLA, 30, 500, "START: Pause/resume game", 0.8, theme_color[10+theme_slot])
-			screen:flip()
+			screen.flip()
 				if buttons.start then
 				break
 				end
