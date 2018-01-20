@@ -1,7 +1,7 @@
 ---------------------------------------------------------------------------------------------------
 --Sudorku, by dragaron-----------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
-d
+
 
 ---------------------------------------------------------------------------------------------------
 --INITIALIZATION START-----------------------------------------------------------------------------
@@ -21,7 +21,7 @@ color.loadpalette()
 	screen.print(10, 10, "Loading...")
 	screen.flip()
 	puzzle = tonumber(ini.read(dir .. "config.ini", "puzzle", 1))
-	theme_slot = tonumber(ini.read(dir .. "config.ini", "theme_slot", 0))	
+	theme_slot = tonumber(ini.read(dir .. "config.ini", "theme_slot", 0))
 	themes = {}
 		for i = 1, 10 do
 		themes[i] = ini.read(dir .. "config.ini", "themes[" .. i .. "]", "255255255050000050000255090090090255255255255255255255255030000000000050130130130255255255255255255255255255255255255255255255180255255255255030")
@@ -646,7 +646,7 @@ load_theme()
 		y = 165
 		last = 12+theme_slot
 		first = last - 11
-		screen.print(CONSOLA, x-20, y-30, "L<               >R", 0.8, theme_color[10+theme_slot])		
+		screen.print(CONSOLA, x-20, y-30, "L<               >R", 0.8, theme_color[10+theme_slot])
 		screen.print(CONSOLA, x+12, y-15, "R", 0.8, theme_color[10+theme_slot])
 		screen.print(CONSOLA, x+52, y-15, "G", 0.8, theme_color[10+theme_slot])
 		screen.print(CONSOLA, x+92, y-15, "B", 0.8, theme_color[10+theme_slot])
@@ -658,7 +658,7 @@ load_theme()
 			end
 		for i = first, last do
 			draw.fillrect(x-20, y+5, 10, 10, theme_color[i])
-			draw.rect(x-20, y+5, 10, 10, theme_color[4+theme_slot])					
+			draw.rect(x-20, y+5, 10, 10, theme_color[4+theme_slot])
 				if theme_y+theme_slot == i then
 				draw.fillrect(x-8, y+3, 168, 13, theme_color[12+theme_slot])
 				end
@@ -666,7 +666,7 @@ load_theme()
 				temp = theme_set[i][i2]
 					if temp < 10 then temp = "00" .. temp
 					elseif temp < 100 then temp = "0" .. temp
-					end				
+					end
 					if theme_y+theme_slot == i and theme_x == i2 then
 					screen.print(CONSOLA, x-5, y, "[   ]", 0.8, theme_color[10+theme_slot])
 					end
@@ -678,7 +678,7 @@ load_theme()
 			end
 		end
 		--Draw # missing/incorrect if circle button is held
-		if buttons.held.circle then		
+		if buttons.held.circle then
 		screen.print(CONSOLA, 757, 319, 81-game_complete .. " missing/incorrect", 0.8, theme_color[10+theme_slot])
 		end
 	--/GUI---------------------------------------------------------------------------
@@ -901,7 +901,7 @@ load_theme()
 				if theme_slot > 108 then
 				theme_slot = 0
 				end
-			end			
+			end
 			if buttons.up then
 			theme_y -= 1
 				if theme_y <= 0 then
@@ -952,7 +952,7 @@ load_theme()
 				end
 			end
 		first = 1
-		last = 144		
+		last = 144
 			for i = 1, 10 do
 				screen.print(160, 230, "Saving...")
 				draw.rect(160, 260, 12, 20, color.white)
