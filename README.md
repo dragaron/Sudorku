@@ -14,12 +14,12 @@ Sudoku for the PS Vita; fill in each row, column, and 9x9 section using numbers 
 #### CONTROLS  
 TOUCH: Touch left/right grid to make selections  
 SQUARE (held)  
- +D-PAD RIGHT/LEFT: Change puzzle +/- 1  
- +D-PAD UP/DOWN: Change puzzle +/- 10  
+&nbsp; &nbsp;+D-PAD RIGHT/LEFT: Change puzzle +/- 1  
+&nbsp; &nbsp;+D-PAD UP/DOWN: Change puzzle +/- 10  
 TRIANGLE (held)  
- +L or R: Change theme  
- +D-PAD: Select color (RGB) or alpha (A) to edit  
- +Left Analog UP/DOWN: +/- 1 (0-255)  
+&nbsp; &nbsp;+L or R: Change theme  
+&nbsp; &nbsp;+D-PAD: Select color (RGB) or alpha (A) to edit  
+&nbsp; &nbsp;+Left Analog UP/DOWN: +/- 1 (0-255)  
 CIRCLE (held): Indicate # missing/incorrect  
 START: Pause/resume game  
 
