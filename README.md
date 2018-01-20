@@ -24,7 +24,7 @@ CIRCLE (held): Indicate # missing/incorrect
 START: Pause/resume game  
 
 ### MISC  
-- Sudorku creates a "config.ini" file upon first startup which is used to store settings; do not modify this file  
+- Sudorku creates a 'config.ini' file upon first startup which is used to store settings; do not modify this file  
 
 #### THANKS  
 To everyone in the scene that makes projects like this possible to do on the PS Vita
